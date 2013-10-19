@@ -46,11 +46,19 @@ gem 'carrierwave-mongoid', '~> 0.6.0', :require => 'carrierwave/mongoid'
 # To use debugger
 # gem 'ruby-debug'
 gem 'capistrano', '~> 2.15'
-gem "capybara", :group => [:development, :test]
 gem "devise"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem "bson_ext"
 gem "mongoid", ">= 2.0.0.beta.19"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
+
+group :test do
+  gem "capybara"
+  gem 'rspec-rails', '>= 2.0.1'
+  gem 'spork'
+  gem 'factory_girl_rails'
+  gem 'mongoid-rspec'
+  gem 'simplecov'
+end
+
