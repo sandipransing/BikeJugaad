@@ -15,5 +15,8 @@
       test
   .modal-footer
     %a.btn{"data-dismiss" => "modal"} Close
-
-
+:coffeescript
+  $(document).ready ->
+    $("#search_location").typeahead
+      source: ['aa', 'bb', 'cc']
+      minLength: 0
