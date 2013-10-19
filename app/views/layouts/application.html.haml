@@ -24,25 +24,7 @@
             %a{href: "#", title: "RentMYBike"}
               %img{alt: "RentMYBike", src: "/assets/bootstrap_logo.png"}/
           .span6
-            .pull-right
-              %br/
-              %a.pull-right{href: "mailto: info@brentmybike.com"}
-                %small E: info@rentmybike.com
-              %strong
-                %small
-                  %br>/
-                  Call (24/7) :  022-22352134
-      .navbar
-        .navbar-inner
-          .container
-            %form.navbar-search.form-inline{action: "#", style: "margin-top:6px"}
-              %input{placeholder: "Location", type: "text"}/
-              %input{placeholder: "Country", type: "text"}/
-              .input-append
-                %input{placeholder: "", type: "text"}/
-                %button.btn.btn-warning
-                  %i.icon-search.icon-white
-            .nav-collapse
+            .navbar
               %ul.nav.pull-right
                 %li
                   %a{href: "#"} Home
@@ -53,6 +35,16 @@
                     = link_to 'Log Out', destroy_user_session_path, method: 'delete'
                   - else
                     = link_to 'Sign In', new_user_session_path
+      .navbar
+        .navbar-inner
+          .container
+            %form.navbar-search.form-inline{action: "#", style: "margin-top:6px"}
+              %input{placeholder: "Location", type: "text"}/
+              %input{placeholder: "Country", type: "text"}/
+              .input-append
+                %input{placeholder: "", type: "text"}/
+                %button.btn.btn-warning
+                  %i.icon-search.icon-white
 
       - if current_user and !@search.blank?
         = render 'layouts/carousel'
