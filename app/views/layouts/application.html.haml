@@ -1,14 +1,72 @@
 !!!
 %html
   %head
-    %title RentMyBikeIn
-    = stylesheet_link_tag    "application", :media => "all"
+    %meta{charset: "utf-8"}/
+    %title
+      = yield(:title)
+      | RentMYBike
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %meta{content: "My bike, Rent, moterbike, Bike Rentals, Bicycle Rentals, Bike Tours, Bike", name: "description"}/
+    %meta{content: "My bike, Rent, moterbike, Bike Rentals, Bicycle Rentals, Bike Tours, Bike", name: "author"}/
+    = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
+    / Le HTML5 shim, for IE6-8 support of HTML5 elements
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    / Le fav and touch icons
     = csrf_meta_tags
-    - if user_signed_in?
-      = link_to 'Log Out', destroy_user_session_path, method: 'delete'
-    - else
-      = link_to 'Sign In', new_user_session_path
+    %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+    %link{href: "assets/ico/apple-touch-icon-144-precomposed.png", rel: "apple-touch-icon-precomposed", sizes: "144x144"}/
+    %link{href: "assets/ico/apple-touch-icon-114-precomposed.png", rel: "apple-touch-icon-precomposed", sizes: "114x114"}/
+    %link{href: "assets/ico/apple-touch-icon-72-precomposed.png", rel: "apple-touch-icon-precomposed", sizes: "72x72"}/
+    %link{href: "assets/ico/apple-touch-icon-57-precomposed.png", rel: "apple-touch-icon-precomposed"}/
+  %body{"data-offset" => "40"}
+    .container
+      %header.header
+        .row
+          %h1.span6
+            %a{href: "#", title: "RentMYBike"}
+              %img{alt: "RentMYBike", src: "/assets/bootstrap_logo.png"}/
+          .span6
+            .pull-right
+              %br/
+              %a.pull-right{href: "mailto: info@brentmybike.com"}
+                %small E: info@rentmybike.com
+              %strong
+                %small
+                  %br>/
+                  Call (24/7) :  022-22352134
+      .navbar
+        .navbar-inner
+          .container
+            %form.navbar-search.form-inline{action: "#", style: "margin-top:6px"}
+              %input{placeholder: "Location", type: "text"}/
+              %input{placeholder: "Country", type: "text"}/
+              .input-append
+                %input{placeholder: "", type: "text"}/
+                %button.btn.btn-warning
+                  %i.icon-search.icon-white
+            .nav-collapse
+              %ul.nav.pull-right
+                %li
+                  %a{href: "#"} Home
+                %li
+                  %a{href: "#"} About Us
+                %li
+                  - if user_signed_in?
+                    = link_to 'Log Out', destroy_user_session_path, method: 'delete'
+                  - else
+                    = link_to 'Sign In', new_user_session_path
 
-  %body
-    = yield
+      - if current_user
+        = render 'layouts/carousel'
+      - else
+        =yield
+      = render 'layouts/latest_deals'
+      %hr.soften/
+      %footer.footer
+        .container
+          %p.pull-right
+            %a{:href => "#"} Back to top
+          %p
+            \© 2013 RentMYBike.
