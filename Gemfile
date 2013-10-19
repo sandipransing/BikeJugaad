@@ -10,6 +10,11 @@ gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
+
+platform :ruby do
+  gem 'rmagick'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -20,7 +25,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
+#Image
+gem 'fog'
+gem 'carrierwave-mongoid', '~> 0.6.0', :require => 'carrierwave/mongoid'
+gem 'mongoid-grid_fs'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
