@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/gautamrege/mongoid-grid_fs.git
+  revision: 8051a81d4cba13239ae77b364797856c6d195576
+  specs:
+    mongoid-grid_fs (1.9.0)
+      mime-types (~> 1.19)
+      mongoid (>= 3.0, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -223,7 +231,7 @@ DEPENDENCIES
   jquery-rails
   json
   mongoid (>= 2.0.0.beta.19)
-  mongoid-grid_fs
+  mongoid-grid_fs!
   mongoid-rspec
   rails (= 3.2.15)
   rmagick

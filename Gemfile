@@ -27,8 +27,8 @@ end
 
 #Image
 gem 'fog'
+gem 'mongoid-grid_fs', github: 'gautamrege/mongoid-grid_fs'
 gem 'carrierwave-mongoid', '~> 0.6.0', :require => 'carrierwave/mongoid'
-gem 'mongoid-grid_fs'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
