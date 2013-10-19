@@ -2,7 +2,7 @@ namespace :populate do
   
   desc "populate cities across world"
   task :cities => :environment do
-    rows = File.open("#{Rails.root}/worldcitiespop.txt", 'r').readlines
+    rows = File.open("#{Rails.root}/uploads/worldcitiespop.txt", 'r').readlines
     rows.each_with_index do |line, index|
       begin
       next if index == 0
