@@ -25,17 +25,7 @@
             %a{href: "#", title: "RentMYBike"}
               %img{alt: "RentMYBike", src: "/assets/bootstrap_logo.png"}/
           .span6
-            .navbar
-              %ul.nav.pull-right
-                %li
-                  = link_to "Home", root_path
-                %li
-                  %a{href: "#"} About Us
-                %li
-                  - if user_signed_in?
-                    = link_to 'Log Out', destroy_user_session_path, method: 'delete'
-                  - else
-                    = link_to 'Sign In', new_user_session_path                    
+            = render "layouts/navigation"
       = yield
       %hr.soften/
       %footer.footer
