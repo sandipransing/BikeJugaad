@@ -1,1 +1,22 @@
 = render 'deals/search'
+- if @search_results.blank?
+  = render 'layouts/carousel'
+  = render 'layouts/latest_deals'
+-else
+  = render 'layouts/search_results'
+
+
+#create_deal.modal.hide.fade
+  .modal-header
+    %a.close{"data-dismiss" => "modal"} ×
+    %h3.title Create Deal
+  .modal-body.msg
+    %p
+      test
+  .modal-footer
+    %a.btn{"data-dismiss" => "modal"} Close
+:coffeescript
+  $(document).ready ->
+    $("#search_location").typeahead
+      source: ['aa', 'bb', 'cc']
+      minLength: 0

@@ -2,6 +2,11 @@ RentMyBikeIn::Application.routes.draw do
 
   devise_for :users
   root to: 'deals#index'
+  resources :deals, :only => [:index] do
+    collection do
+      post :search
+    end
+  end
 
   match '/details', to: 'welcome#details', as: :details
   match '/contact_us', to: 'welcome#contact_us', as: :contact_us
