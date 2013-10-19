@@ -9,6 +9,7 @@
     %meta{content: "My bike, Rent, moterbike, Bike Rentals, Bicycle Rentals, Bike Tours, Bike", name: "description"}/
     %meta{content: "Hero, TVS, Royal Enfield, Suzuki, Yamah, Honda, Bajaj, Ducati, harley davidson", name: "author"}/
     = stylesheet_link_tag "application", :media => "all"
+    = yield :stylesheets
     = javascript_include_tag "application"
     / Le HTML5 shim, for IE6-8 support of HTML5 elements
     /[if lt IE 9]
