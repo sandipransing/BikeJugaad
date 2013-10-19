@@ -3,9 +3,11 @@
     %li
       = link_to "Home", root_path
     %li
-      %a{href: "#"} About Us
+      = link_to 'Details', details_path
+    %li
+      = link_to 'Contact Us', contact_us_path
     %li
       - if user_signed_in?
         = link_to 'Log Out', destroy_user_session_path, method: 'delete'
       - else
-        = link_to 'Sign In', new_user_session_path                    
+        = link_to 'Sign In', new_user_session_path
