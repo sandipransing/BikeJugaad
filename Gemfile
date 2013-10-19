@@ -36,7 +36,7 @@ end
 
 # To use debugger
 # gem 'ruby-debug'
-
+gem 'capistrano', '~> 2.15'
 gem "capybara", :group => [:development, :test]
 gem "devise"
 gem "haml", ">= 3.0.0"
