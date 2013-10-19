@@ -27,7 +27,7 @@
             .pull-right
               %br/
               %a.pull-right{href: "mailto: info@brentmybike.com"}
-                %small E: info@rentmybike.com
+                %small E: info@rentmybike.in
               %strong
                 %small
                   %br>/
@@ -54,16 +54,11 @@
                   - else
                     = link_to 'Sign In', new_user_session_path
 
-      - if current_user and !@search.blank?
-        = render 'layouts/carousel'
-        = render 'layouts/latest_deals'
-      - else
-        =yield
-        = render 'layouts/search_results'
+        = yield
       %hr.soften/
       %footer.footer
         .container
           %p.pull-right
             %a{:href => "#"} Back to top
           %p
-            \© 2013 RentMYBike.
+            \© 2013 RentMYBike.in
