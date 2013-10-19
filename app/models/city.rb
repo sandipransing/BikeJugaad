@@ -7,4 +7,8 @@ class City
   field :name, type: String
   
   validates :name, :presence => true
+
+  def as_json(options={})
+    super(:only => [:_id, :name, :country_id])
+  end
 end

@@ -8,4 +8,8 @@ class Country
   field :code, type: String
 
   validates :code, :presence => true
+  
+  def as_json(options={})
+    super(:only => [:_id, :name])
+  end
 end

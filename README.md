@@ -2,7 +2,7 @@
 
 Visit [RentMyBike.in](http://rentmybike.r13.railsrumble.com/) Website
 
-## Environment
+### Environment
     Ruby version  2.0.0 (x86_64-linux)
     RubyGems version  1.8.28
     Rack version  1.4
@@ -14,8 +14,11 @@ Visit [RentMyBike.in](http://rentmybike.r13.railsrumble.com/) Website
     Active Support version
 
 
-## How to deploy?
+### How to deploy?
     cap deploy
+
+### Populate data
+    rake populate:data
 
 ### LOCAL GEMS
     actionmailer (3.2.15, 3.2.14)
