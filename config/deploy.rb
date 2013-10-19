@@ -77,6 +77,8 @@ after 'deploy:update_code' do
 
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+  run "rm -rf #{release_path}/uploads" 
+  run "ln -s #{shared_path}/uploads #{latest_release}/uploads"
 end
 
 # Restart Passenger
