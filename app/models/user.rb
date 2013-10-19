@@ -42,5 +42,5 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
 
-  has_many :vehicles
+  has_many :deals, dependent: :destroy
 end
