@@ -296,7 +296,7 @@ a:hover {
 }
 
 .span11 {
-  width: 860px;
+  width: 1070px;
 }
 
 .span10 {
@@ -5458,8 +5458,8 @@ input[type="submit"].btn.btn-mini {
 
 .thumbnail {
   display: block;
-  padding: 4px;
-  line-height: 20px;
+  padding: 11px;
+  line-height: 23px;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
