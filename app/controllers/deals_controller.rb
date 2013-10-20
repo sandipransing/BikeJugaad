@@ -1,11 +1,15 @@
 class DealsController < ApplicationController
 
+  def index
+    @deals = Deal.all
+  end
+
   def new
-    @deal = Deal.new
+    @deal = current_user.deals.new
   end
 
   def create
-    @deal = Deal.new(params[:deal])
+    @deal = current_user.deals.new(params[:deal])
     if @deal.save
       redirect_to deals_path
     else

@@ -28,6 +28,8 @@ class Deal
   field :rate_per_hour, type: String
   field :rate_per_day, type: String
   
+  mount_uploader :photo, PhotoUploader
+  
 
   belongs_to :user
 
@@ -35,5 +37,11 @@ class Deal
 
   #validates_inlusion_of :vehicle_type, :in => Sports bike, Scooter, Moped, Touring bike
   validates :vehicle_type, :from, :till, :user_id, presence: true
+
+  accepts_nested_attributes_for :images
+
+  def location
+     [address1, address2, city, country].compact.join(' ')
+  end
 
 end

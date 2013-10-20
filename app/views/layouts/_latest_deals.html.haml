@@ -1,12 +1,16 @@
 .row-fluid
-  .span12
-    .span3
-      %img.pull-left{alt: "#", src: "/assets/1.jpg"}/
-    .span8
-      .caption
-        %label Website Design
-        %h5 Your Website represents you
-        %p
-          We are helping you to design you a professional website.Converting PSD to XHTML & CSS. Even more in Graphic Design such as Coverpage, Logo etc.
-        %a.pull-right{href: "#"} view details
-      %br/
+  - @deals.each do |deal|
+    .span12
+      .span3
+        %img.pull-left{src: deal.photo.url}
+      .span8
+        .caption
+          %h5= "From #{deal.from.strftime('%d/%m/%Y')} - Till #{deal.till.strftime('%d/%m/%Y')}"
+          %h5= "Rate per day: #{deal.rate_per_day} , Rate Per Hour: #{deal.rate_per_hour}"
+          %label= deal.location
+          %label= "Mobile: #{deal.mobile.blank? ? '-' : deal.mobile}"
+          %p
+            = deal.info
+          =link_to 'view details', deal_path(deal), remort:true
+        %br/
+

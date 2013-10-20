@@ -1,6 +1,7 @@
-= form_for @deal, url: deals_path, html: {class: 'form-horizontal'} do|f|
+= simple_form_for @deal, url: deals_path, html: {:multipart => true}  do |f|
   %h3.title Create Deal
-  = render 'form', f: f
+  %fieldset
+    = render 'form', f: f
   = submit_tag  "Save", class: 'btn btn-success'
   %a.btn{href: deals_path} Back
 

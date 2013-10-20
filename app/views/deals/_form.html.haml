@@ -1,79 +1,55 @@
-.control-group
-  %label.control-label Vehicle Type
-  .controls
-    = f.text_field :vehicle_type, {class: 'input-xlarge', placeholder: 'Vehicle Type'}
-.control-group
-  %label.control-label From Date
-  .controls
-    = f.text_field :from, {class: 'input-xlarge date', placeholder: 'mm/dd/yyyy'}
-.control-group
-  %label.control-label Till Date
-  .controls
-    = f.text_field :till, {class: 'input-xlarge', placeholder: 'mm/dd/yyyy'}
-.control-group
-  %label.control-label Make
-  .controls
-    = f.text_field :make, {class: 'input-xlarge', placeholder: 'Hero Honda'}
-.control-group
-  %label.control-label Model
-  .controls
-    = f.text_field :model, {class: 'input-xlarge', placeholder: 'Activa'}
-.control-group
-  %label.control-label Registration Date
-  .controls
-    = f.text_field :registration_date, {class: 'input-xlarge', placeholder: 'mm/dd/yy'}
-.control-group
-  %label.control-label Hourly Rate
-  .controls
-    = f.text_field :rate_per_hour, {class: 'input-xlarge', placeholder: '50 Rs.'}
-.control-group
-  %label.control-label Per Day Rate
-  .controls
-    = f.text_field :rate_per_day, {class: 'input-xlarge', placeholder: '300 RS.'}
-.control-group
-  %label.control-label Mobile No.
-  .controls
-    = f.text_field :mobile, {class: 'input-xlarge', placeholder: '+91 9876655676'}
-.control-group
-  %label.control-label Phone No.
-  .controls
-    = f.text_field :phone, {class: 'input-xlarge', placeholder: '022-23457890'}
-.control-group
-  %label.control-label Email
-  .controls
-    = f.text_field :registration_date, {class: 'input-xlarge', placeholder: 'info@rentmybike.com'}
-.control-group
-  %label.control-label Address1
-  .controls
-    = f.text_field :address1, {class: 'input-xlarge', placeholder: 'Home no.'}
-.control-group
-  %label.control-label Address2
-  .controls
-    = f.text_field :address2, {class: 'input-xlarge', placeholder: 'Area'}
-.control-group
-  %label.control-label Land Mark
-  .controls
-    = f.text_field :land_mark, {class: 'input-xlarge', placeholder: 'Near SBI bank'}
-.control-group
-  %label.control-label City
-  .controls
-    = f.text_field :city, {class: 'input-xlarge', placeholder: 'Pune'}
-.control-group
-  %label.control-label State
-  .controls
-    = f.text_field :state, {class: 'input-xlarge', placeholder: 'MH'}
-.control-group
-  %label.control-label Country
-  .controls
-    = f.text_field :country, {class: 'input-xlarge', placeholder: 'India'}
-.control-group
-  %label.control-label Zip Code
-  .controls
-    = f.text_field :zip, {class: 'input-xlarge', placeholder: '411005'}
-.control-group
-  %label.control-label Additional Info
-  .controls
-    = f.text_area :info, cols: 20, rows: 5, class: 'input-xlarge'
+.row-fluid
+  .span3
+    = f.input :vehicle_type, label: 'Vehicle Type', placeholder: 'Vehicle Type'
+  .span3
+    = f.input :from, label: 'From Date', placeholder: 'mm/dd/yyyy', label_html: { class: 'text-large date' }
+  .span3
+    = f.input :till, label: 'Till Date', placeholder: 'mm/dd/yyyy'
+  .span3
+    = f.input :make, label: 'Make', placeholder: 'Hero Honda'
+.row-fluid
+  .span3
+    = f.input :model, label: 'Model', placeholder: 'Activa'
+  .span3
+    = f.input :registration_date, label: 'Registration Date', placeholder: 'yyyy/mm/dd'
+  .span3
+    = f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
+  .span3
+    = f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300 Rs.'
+.row-fluid
+  .span3
+    = f.input :mobile, label: 'Mobile No.', placeholder: '+91 9877655765'
+  .span3
+    = f.input :phone, label: 'phone', placeholder: '022-23874338'
+  .span3
+    = f.input :email, label: 'Email', placeholder: 'info@rentmybike.com'
+  .span3
+    = f.input :address1, label: 'Address1', placeholder: 'Home no.'
+.row-fluid
+  .span3
+    = f.input :address2, label: 'Address2', placeholder: 'area'
+  .span3
+    = f.input :land_mark, label: 'Land Mark', placeholder: 'Near SBI bank'
+  .span3
+    = f.input :city, label: 'city', placeholder: 'pune'
+  .span3
+    .control-group
+      %label Country
+      .control
+        = f.select :country, ['India'], {},{ :disabled => 'disabled'}
+.row-fluid
+  .span3
+    = f.input :zip, label: 'Zip Code', placeholder: '411005'
+  .span3
+    .control-group
+      %label Additional Info
+      .control
+        = f.text_area :info, rows:5, cols: 10
+  .span6
+    .control-group
+      %label Photo
+      .control
+        = f.file_field :photo
 
 
 :coffeescript
