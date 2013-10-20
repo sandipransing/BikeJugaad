@@ -4,7 +4,7 @@
   .span3= f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.till.try(:strftime, '%d/%m/%Y')}
   .span3= f.input :make, collection: Deal::VEHICLE_DATA[:make].sort, label: 'Make', prompt: "Select make"
 .row
-  .span3= f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
+  .span3= f.input :model, collection: [], label: 'Model', prompt: "Select model"
   .span3= f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.registration_date.try(:strftime, '%d/%m/%Y')}
   .span3= f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50'
   .span3= f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300'
@@ -44,7 +44,15 @@
         = f.file_field :photo
 
 :coffeescript
+  @vehicle_data = #{Deal::VEHICLE_DATA.to_json()}
   $(document).ready ->
     $('#deal_from,#deal_till,#deal_registration_date').datepicker( dateFormat: 'dd/mm/yy')
     $('#deal_city').typeahead
       source: cities
+    $('#deal_make').on 'change', (e) ->
+      make = $('#deal_make').val()
+      $('#deal_model').empty()
+      $('#deal_model').append('<option value=""> Select model </option>');
+      $.each vehicle_data['model'][make], (index, val) ->
+        $('#deal_model').append("<option value='" + val + "'>" + val + "</option>");
+
