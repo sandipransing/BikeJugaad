@@ -1,0 +1,59 @@
+.row-fluid
+  .span3
+    = f.input :vehicle_type, collection: Deal::VEHICLE_DATA[:vehicle_type].sort, label: 'Vehicle Type',  prompt: "Select vehicle type"
+  .span3
+    = f.input :from, label: 'From Date', placeholder: 'dd/mm/yyyy'
+  .span3
+    = f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy'
+  .span3
+    = f.input :make, collection: Deal::VEHICLE_DATA[:make].sort, label: 'Make', prompt: "Select make"
+.row-fluid
+  .span3
+    = f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
+  .span3
+    = f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy'
+  .span3
+    = f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
+  .span3
+    = f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300 Rs.'
+.row-fluid
+  .span3
+    = f.input :mobile, label: 'Mobile No.', placeholder: '+91 9877655765'
+  .span3
+    = f.input :phone, label: 'phone', placeholder: '022-23874338'
+  .span3
+    = f.input :email, label: 'Email', placeholder: 'info@rentmybike.com'
+  .span3
+    = f.input :address1, label: 'Address1', placeholder: 'Home no.'
+.row-fluid
+  .span3
+    = f.input :address2, label: 'Address2', placeholder: 'area'
+  .span3
+    = f.input :land_mark, label: 'Land Mark', placeholder: 'Near SBI bank'
+  .span3
+    = f.input :city, label: 'city', placeholder: 'pune'
+  .span3
+    .control-group
+      %label Country
+      .control
+        = f.select :country, ['India'], {},{ :disabled => 'disabled'}
+.row-fluid
+  .span3
+    = f.input :zip, label: 'Zip Code', placeholder: '411005'
+  .span3
+    .control-group
+      %label Additional Info
+      .control
+        = f.text_area :info, rows:5, cols: 10
+  .span6
+    .control-group
+      %label Photo
+      .control
+        = f.file_field :photo
+
+
+:coffeescript
+  $(document).ready ->
+    $('#deal_from').datepicker()
+    $('#deal_till').datepicker()
+    $('#deal_registration_date').datepicker()
