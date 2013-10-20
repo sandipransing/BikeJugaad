@@ -59,5 +59,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'mongoid-rspec'
   gem 'simplecov'
+  gem 'shoulda-matchers'
 end
 

@@ -6,5 +6,4 @@ class DealsController < ApplicationController
   def cities
     @cities = City.all
   end
-
 end
