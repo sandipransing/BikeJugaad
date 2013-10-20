@@ -1,9 +1,8 @@
+- provide(:title, 'Deals')
 = render 'search'
-
-- if @search_results.blank?
-  = render 'layouts/carousel'
-  = render 'layouts/latest_deals'
--else
-  = render 'layouts/search_results'
+= render 'layouts/carousel'
+.row-fluid
+  .span12
+    = render @deals
 
 #show_deal
