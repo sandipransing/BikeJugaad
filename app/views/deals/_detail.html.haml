@@ -1,9 +1,14 @@
 .row-fluid
   .span12
-    .span3
+    .span4
       %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/default.png' : deal.photo.thumb.url}
-    .span12.well
-      .span10
+      %img{src: "/assets/stars-4-5.gif", class: 'image-box'}
+      .button-box
+        - if current_user && deal.user.id == current_user.id
+          =link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
+          =link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'
+    .span8.well
+      .span12
         .caption
           %h5= "From #{deal.from.strftime('%d/%m/%Y')} - #{deal.till.strftime('%d/%m/%Y')}"
           .row-fluid
@@ -16,32 +21,29 @@
                 Rate Per Hour:
               =raw deal.rate_per_hour.blank? ? 'N/A' : "&#8377 #{deal.rate_per_hour}" 
           .row-fluid
-            .span6
+            .span12
               %b
                 Bike Info:
               = deal.bike_detail
-            .span6
+          .row-fluid
+            .span12
               %b
                 Location:
               = deal.location
-          .row-fluid
-            - unless deal.mobile.blank?
-              .span3
+          - unless deal.mobile.blank?
+            .row-fluid
+              .span12
                 %img{src: '/assets/mobile.png'}
                 = deal.mobile
-            - unless deal.phone.blank?
-              .span3
+          - unless deal.phone.blank?
+            .row-fluid
+              .span12
                 %img{src: '/assets/phone.png'}
                 = deal.phone
-            - unless deal.email.blank?
-              .span3
-                %img{src: '/assets/email.png'}
+          - unless deal.email.blank?
+            .row-fluid
+              .span12
+                %img.img-width{src: '/assets/email.png'}
                 = deal.email
           %br
           = deal.info
-    .row-fluid
-      .span2
-        %img{src: "/assets/stars-4-5.gif"}
-        - if current_user && deal.user.id == current_user.id
-          =link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
-          =link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'
