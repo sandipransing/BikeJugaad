@@ -1,11 +1,11 @@
-.row-fluid
+%div.row-fluid.deal{'data-make' => "#{deal.make}", 'data-model' => "#{deal.model}", 'data-vehicle_type' => "#{deal.vehicle_type}"}
   .span12
     .span3
       %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/default.png' : deal.photo.thumb.url}
     .span9.well
       .span10
         .caption
-          %h5= "From #{deal.from.strftime('%d/%m/%Y')} — #{deal.till.strftime('%d/%m/%Y')}"
+          %h5 From: #{deal.from.strftime('%d/%m/%Y')} — Till: #{deal.till.strftime('%d/%m/%Y')}
           .row-fluid
             .span6
               %b

@@ -5,28 +5,24 @@
         Bike Types
     #collapseOne.accordion-body.collapse{style: "height: 0px;"}
       .accordion-inner
-        %ul
+        %ul.vehicle_types
           - Deal::VEHICLE_DATA[:vehicle_type].each do |type|
-            %li= type
+            %li
+              = check_box_tag type, false, true, 'data-type' => type
+              = type
   .accordion-group
     .accordion-heading
       %a.accordion-toggle.collapsed{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapseTwo"}
-        Bike Makes
+        Bike Models
     #collapseTwo.accordion-body.collapse{style: "height: 0px;"}
       .accordion-inner
         %ul
-          - Deal::VEHICLE_DATA[:make].each do |make|
-            %li= make
-  .accordion-group
-    .accordion-heading
-      %a.accordion-toggle.collapsed{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapseThree"}
-        Bike Models
-    #collapseThree.accordion-body.collapse{style: "height: 0px;"}
-      .accordion-inner
-        %ul
           - Deal::VEHICLE_DATA[:model].each do |make, models|
-            %li
+            %li.make{'data-make' => make }
+              = check_box_tag make, true, false, 'data-make' => make, 'class' => "make"
               = make
-              %ul
+              %ul.subfilter
                 - models.each do |model|
-                  %li= model
+                  %li.model
+                    = check_box_tag model, true, false, 'data-model' => model
+                    = model
