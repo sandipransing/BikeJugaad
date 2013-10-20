@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
 
   before_filter :load_user
-  
+
   def search
     @deals = Deal.asc(:from)
   end
@@ -39,7 +39,7 @@ class DealsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @deal = Deal.find(params[:id])
     @deal.destroy
@@ -48,7 +48,7 @@ class DealsController < ApplicationController
 
   def countries
     @countries = Country.all
-  end 
+  end
 
   private
   def load_user

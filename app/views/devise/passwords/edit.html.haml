@@ -1,5 +1,3 @@
-= content_for :stylesheets do
-  = stylesheet_link_tag 'signin'
 - provide(:title, 'Change your password')
 
 .signin
@@ -9,8 +7,10 @@
     = devise_error_messages!
     = f.hidden_field :reset_password_token
     %div
-      = f.password_field :password, :autofocus => true, placeholder: "New password", class: 'width_95_percent'
+      = f.password_field :password, :autofocus => true, placeholder: "New password", class: 'width_75_percent'
     %div
-      = f.password_field :password_confirmation, placeholder: "Confirm new password", class: 'width_95_percent'
+      = f.password_field :password_confirmation, placeholder: "Confirm new password", class: 'width_75_percent'
     %div= f.submit "Change my password", class: 'btn'
-  = render "devise/shared/links"
+  = link_to "Sign up", new_registration_path(resource_name), class: 'pull-right'
+  .pull-right.margin_adjust= "|"
+  = link_to "Sign in", new_session_path(resource_name), class: 'pull-right'
