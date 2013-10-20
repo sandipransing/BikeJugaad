@@ -1,6 +1,6 @@
-# RentMyBike.in
+# BikeJugaad.com
 
-Visit [RentMyBike.in](http://rentmybike.r13.railsrumble.com/) Website
+Visit [BikeJugaad.com](http://bikejugaad.r13.railsrumble.com/) Website
 
 ### Environment
     Ruby version  2.0.0 (x86_64-linux)

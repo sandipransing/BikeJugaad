@@ -5,7 +5,7 @@
     .span9.well
       .span10
         .caption
-          %h5= "From #{deal.from.strftime('%d/%m/%Y')} - #{deal.till.strftime('%d/%m/%Y')}"
+          %h5= "From #{deal.from.strftime('%d/%m/%Y')} — #{deal.till.strftime('%d/%m/%Y')}"
           .row-fluid
             .span6
               %b
@@ -39,7 +39,6 @@
                 = deal.email
           = truncate(deal.info, length: 250)
       .span2
-        %img{src: "/assets/stars-4-5.gif"}
         %br
         %br
         %br

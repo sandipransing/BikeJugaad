@@ -1,5 +1,5 @@
+- provide(:title, 'Search Deals')
 = render 'search'
 .row-fluid
-  .span4.thumbnail
-  .span8.pull-right.deal
-    = render @deals 
+  .span3= render 'filter'
+  .span9.pull-right.deal= render @deals 

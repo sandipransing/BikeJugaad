@@ -61,6 +61,9 @@ class Deal
       if from.to_date > till.to_date
         errors.add(:from, "can't be greater than till date")
       end
+      if from.to_date < Date.today
+        errors.add(:from, "can't be less than today's date")
+      end
     end
     if registration_date.present? && registration_date.to_date > Date.today
       errors.add(:registration_date, "can't be greater than today's date")
