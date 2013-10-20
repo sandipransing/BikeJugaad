@@ -3,7 +3,7 @@
   %head
     %meta{charset: "utf-8"}/
     %title
-      RentMYBike
+      BikeJugaad
       |
       = yield(:title)
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
@@ -18,12 +18,13 @@
     / Le fav and touch icons
     = csrf_meta_tags
     %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+
   %body{"data-offset" => "300", "data-spy" => "scroll", "data-target" => ".subnav", class: ("sign_in_page_grey" unless user_signed_in?) }
     .container
       %header.header
         .row
           .span6
-            = link_to image_tag('logo.png', alt: "RentMYBike.in"), root_url, title: "RentMYBike"
+            = link_to image_tag('logo.png', alt: "BikeJugaad.com"), root_url, title: "BikeJugaad"
           .span6
             = render "layouts/navigation"
       - if notice
@@ -37,5 +38,5 @@
           %p.pull-right
             %a{:href => "#"} Back to top
           %p
-            \© 2013 RentMYBike.in
-
+            \© 2013 BikeJugaad.com
+    = javascript_include_tag "http://s0.railsrumble.com/banner.js"
