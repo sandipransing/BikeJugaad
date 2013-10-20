@@ -16,7 +16,7 @@ class Deal
   }
   }
 
-  scope :latest, lambda { where(:from.lte => Date.today, :till.gte => Date.today) }
+  scope :latest, lambda { where(:till.gte => Date.today) }
 
   field :title, type: String
   field :vehicle_type, type: String
@@ -44,6 +44,9 @@ class Deal
 
   field :rate_per_hour, type: Integer
   field :rate_per_day, type: Integer
+  field :insurence, type: Boolean
+  field :puc, type: Boolean
+  field :is_owner, type: Boolean
 
   mount_uploader :photo, PhotoUploader
 

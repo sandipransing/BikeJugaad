@@ -12,7 +12,7 @@
   .span3
     = f.input :mobile, label: 'Mobile No.', placeholder: '+91 9877655765'
   .span3
-    = f.input :phone, label: 'phone', placeholder: '022-23874338'
+    = f.input :phone, label: 'Phone', placeholder: '022-23874338'
   .span3
     = f.input :email, label: 'Email', placeholder: 'info@rentmybike.com'
   .span3
@@ -23,7 +23,7 @@
   .span3
     = f.input :land_mark, label: 'Land Mark', placeholder: 'Near SBI bank'
   .span3
-    = f.input :city, label: 'city', placeholder: 'pune', autocomplete: :off
+    = f.input :city, label: 'City', placeholder: 'pune', autocomplete: :off
   .span3
     .control-group
       %label Country
@@ -37,6 +37,17 @@
       %label Additional Info
       .control
         = f.text_area :info, rows:5, cols: 10
+  .span4
+    .control-group
+      %span.inline
+        = f.check_box :is_owner
+        Is Owner?
+      %span.inline
+        = f.check_box :insurence
+        Insurance
+      %span.inline
+        = f.check_box :puc
+        PUC
   .span5
     .control-group
       %label Photo
