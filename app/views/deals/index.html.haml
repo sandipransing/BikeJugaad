@@ -1,12 +1,7 @@
 = render 'deals/search'
+
 - if @search_results.blank?
   = render 'layouts/carousel'
   = render 'layouts/latest_deals'
 -else
   = render 'layouts/search_results'
-
-:coffeescript
-  $(document).ready ->
-    $("#search_location").typeahead
-      source: ['aa', 'bb', 'cc']
-      minLength: 0

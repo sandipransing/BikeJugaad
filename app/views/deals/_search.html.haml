@@ -2,11 +2,17 @@
   .navbar-inner
     .container
       = form_tag search_deals_url, :class => "navbar-search form-inline", style: "margin-top:6px" do
-        %input#search_location{placeholder: "Location", type: "text", name: 'city'}/
-        %input#search_country{placeholder: "Country", type: "text", name: 'country'}/
+        %input#search_location{placeholder: "Enter Location here", type: "text", name: 'city'}/
         .input-append
-          %input#search_start{placeholder: "From", type: "text"}/
-          %input#search_end{placeholder: "Till", type: "text"}/
+          %input#search_start{placeholder: "Start Date", type: "text"}/
+          %input#search_end{placeholder: "Till Date", type: "text"}/
           %button.btn.btn-warning
             %i.icon-search.icon-white
 
+:coffeescript
+  cities = #{@cities}
+  $(document).ready ->
+    $("#search_location").typeahead
+      source: _.map cities, (c) -> c.name
+      minLength: 0
+    $("#search_start,#search_end").datepicker( dateFormat: 'dd/mm/yy')

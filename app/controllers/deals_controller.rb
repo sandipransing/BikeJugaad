@@ -1,15 +1,19 @@
 class DealsController < ApplicationController
 
+  before_filter :load_user
+
   def index
     @deals = Deal.asc(:from)
+    @country = Country.where(code: 'IN').first
+    @cities = @country.cities.to_json
   end
 
   def new
-    @deal = current_user.deals.new
+    @deal = @user.deals.new
   end
 
   def create
-    @deal = current_user.deals.new(params[:deal])
+    @deal = @user.deals.new(params[:deal])
     if @deal.save
       redirect_to deals_path
     else
@@ -38,10 +42,10 @@ class DealsController < ApplicationController
 
   def countries
     @countries = Country.all
-  end
+  end 
 
-  def cities
-    @cities = City.all
+  private
+  def load_user
+    @user = current_user
   end
-
 end
