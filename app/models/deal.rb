@@ -42,6 +42,8 @@ class Deal
   
   mount_uploader :photo, PhotoUploader
   
+  index({city: 1, state: 1, country: 1})
+
 
   belongs_to :user
 
@@ -58,8 +60,8 @@ class Deal
         errors.add(:from, "can't be greater than till date")
       end
     end
-    if registration_date.present? && registration_date.to_date < Date.today
-      errors.add(:registration_date, "can't be greater than tody's date")
+    if registration_date.present? && registration_date.to_date > Date.today
+      errors.add(:registration_date, "can't be greater than today's date")
     end
   end
 
