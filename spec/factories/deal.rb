@@ -12,8 +12,8 @@ FactoryGirl.define do
     v.state 'maharashtra'
     v.country 'india'
     v.zip '411005'
-    v.rate_per_hour '12 Rs'
-    v.rate_per_day '175 Rs'
+    v.rate_per_hour '12'
+    v.rate_per_day '175'
     v.phone '25678789'
     v.mobile '9898976899'
   end
