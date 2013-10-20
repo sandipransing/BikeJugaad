@@ -2,7 +2,7 @@
   .span12
     .span3
       %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/default.png' : deal.photo.thumb.url}
-    .span9.well
+    .span12.well
       .span10
         .caption
           %h5= "From #{deal.from.strftime('%d/%m/%Y')} - #{deal.till.strftime('%d/%m/%Y')}"
@@ -38,12 +38,10 @@
                 %img{src: '/assets/email.png'}
                 = deal.email
           %br
-          = truncate(deal.info, length: 250)
+          = deal.info
+    .row-fluid
       .span2
         %img{src: "/assets/stars-4-5.gif"}
-        %br
-        %br
-        %br
-        %br
-        %br
-        =link_to 'view details', deal_path(deal), remote: true, class: 'btn btn-primary btn-small'
+        - if current_user && deal.user.id == current_user.id
+          =link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
+          =link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'

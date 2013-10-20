@@ -3,7 +3,7 @@
     %a.close{"data-dismiss" => "modal"} ×
     %h3.title Deal Info
   .modal-body.msg
-    %img.pull-left{src: @deal.photo.thumb.url.blank? ? '/assets/logo.png' : @deal.photo.thumb.url}
+    = render 'detail', deal: @deal
   .modal-footer
     %a.btn{"data-dismiss" => "modal"} Close
 

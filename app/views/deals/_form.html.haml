@@ -6,8 +6,8 @@
 .row
   .span3= f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
   .span3= f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.registration_date.try(:strftime, '%d/%m/%Y')}
-  .span3= f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
-  .span3= f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300 Rs.'
+  .span3= f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50'
+  .span3= f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300'
 .row
   .span3
     = f.input :mobile, label: 'Mobile No.', placeholder: '+91 9877655765'

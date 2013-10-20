@@ -42,8 +42,8 @@ class Deal
 
   field :info, type: String
 
-  field :rate_per_hour, type: String
-  field :rate_per_day, type: String
+  field :rate_per_hour, type: Integer
+  field :rate_per_day, type: Integer
 
   mount_uploader :photo, PhotoUploader
 
