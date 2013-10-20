@@ -39,9 +39,4 @@
                 = deal.email
           = truncate(deal.info, length: 250)
       .span2
-        %br
-        %br
-        %br
-        %br
-        %br
-        =link_to 'View Details', deal_path(deal), remote: true, class: 'btn btn-primary btn-small'
+        =link_to 'Details', deal_path(deal), remote: true, class: 'btn btn-primary btn-small'
