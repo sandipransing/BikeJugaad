@@ -1,0 +1,32 @@
+#accordion2.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle.collapsed{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapseOne"}
+        Bike Types
+    #collapseOne.accordion-body.collapse{style: "height: 0px;"}
+      .accordion-inner
+        %ul
+          - Deal::VEHICLE_DATA[:vehicle_type].each do |type|
+            %li= type
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle.collapsed{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapseTwo"}
+        Bike Makes
+    #collapseTwo.accordion-body.collapse{style: "height: 0px;"}
+      .accordion-inner
+        %ul
+          - Deal::VEHICLE_DATA[:make].each do |make|
+            %li= make
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle.collapsed{"data-parent" => "#accordion2", "data-toggle" => "collapse", href: "#collapseThree"}
+        Bike Models
+    #collapseThree.accordion-body.collapse{style: "height: 0px;"}
+      .accordion-inner
+        %ul
+          - Deal::VEHICLE_DATA[:model].each do |make, models|
+            %li
+              = make
+              %ul
+                - models.each do |model|
+                  %li= model
