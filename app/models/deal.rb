@@ -70,5 +70,8 @@ class Deal
   def location
     [address1, address2, city, country].compact.join(' ')
   end
-
+  
+  def bike_detail
+    [vehicle_type, make, model].compact.join(' ')
+  end
 end

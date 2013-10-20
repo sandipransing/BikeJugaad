@@ -5,13 +5,3 @@
  *= require jquery-ui
  *= require_tree .
  */
-
-.deal{
-  margin-bottom: 20px
-}
-.margin_top_5px{
-  margin-top: 5px;
-}
-.float_right{
-  float: right;
-}
