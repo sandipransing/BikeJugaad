@@ -85,6 +85,7 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    fast-stemmer (1.0.2)
     fog (1.16.0)
       builder
       excon (~> 0.27.0)
@@ -126,6 +127,9 @@ GEM
       mongoid (>= 3.0.1)
       rake
       rspec (>= 2.14)
+    mongoid_search (0.3.2)
+      fast-stemmer (~> 1.0.0)
+      mongoid (>= 3.0.0)
     moped (1.5.1)
     multi_json (1.8.2)
     net-scp (1.1.2)
@@ -238,6 +242,7 @@ DEPENDENCIES
   mongoid (>= 2.0.0.beta.19)
   mongoid-grid_fs!
   mongoid-rspec
+  mongoid_search
   rails (= 3.2.15)
   rmagick
   rspec-rails (>= 2.0.1)
