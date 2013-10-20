@@ -15,5 +15,9 @@
       source: cities
       minLength: 0
     $("#search_start,#search_end").datepicker( dateFormat: 'dd/mm/yy')
+- if params[:start].blank?
+  :coffeescript
     $("#search_start").val(moment().format('DD/MM/YYYY'))
+- if params[:end].blank?
+  :coffeescript
     $("#search_end").val(moment().add('days', 3).format('DD/MM/YYYY'))

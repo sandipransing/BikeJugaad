@@ -47,12 +47,9 @@ class Deal
 
   mount_uploader :photo, PhotoUploader
 
-  index({city: 1, state: 1, country: 1})
-
-
   belongs_to :user
 
-  validates :vehicle_type, :from, :till, :user_id, presence: true
+  validates :vehicle_type, :from, :till, :city, :mobile, :user_id, presence: true
   validate :date_validation
 
   def date_validation
