@@ -31,12 +31,12 @@
   .span3
     = f.input :land_mark, label: 'Land Mark', placeholder: 'Near SBI bank'
   .span3
-    = f.input :city, label: 'city', placeholder: 'pune'
+    = f.input :city, label: 'city', placeholder: 'pune', autocomplete: :off
   .span3
     .control-group
       %label Country
       .control
-        = f.select :country, ['India'], {},{ :disabled => 'disabled'}
+        = f.select :country, %w(India IN), {}, { :disabled => 'disabled'}
 .row-fluid
   .span3
     = f.input :zip, label: 'Zip Code', placeholder: '411005'
@@ -54,6 +54,6 @@
 
 :coffeescript
   $(document).ready ->
-    $('#deal_from').datepicker( dateFormat: 'dd/mm/yy')
-    $('#deal_till').datepicker( dateFormat: 'dd/mm/yy')
-    $('#deal_registration_date').datepicker( dateFormat: 'dd/mm/yy')
+    $('#deal_from,#deal_till,#deal_registration_date').datepicker()
+    $('#deal_city').typeahead
+      source: cities

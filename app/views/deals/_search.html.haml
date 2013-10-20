@@ -2,10 +2,10 @@
   .navbar-inner
     .container
       = form_tag search_deals_url, :class => "navbar-search form-inline", style: "margin-top:6px" do
-        %input#search_location{placeholder: "Enter Location here", type: "text", name: 'city'}/
+        %input#search_location{placeholder: "Enter Location here", type: "text", name: 'city', value: params[:city], autocomplete: :off}/
         .input-append
-          %input#search_start{placeholder: "Start Date", type: "text"}/
-          %input#search_end{placeholder: "Till Date", type: "text"}/
+          %input#search_start{placeholder: "Start Date", type: "text", name: 'start', value: params[:start]}/
+          %input#search_end{placeholder: "Till Date", type: "text", name: 'end', value: params[:end]}/
           %button.btn.btn-warning
             %i.icon-search.icon-white
 
@@ -15,3 +15,5 @@
       source: cities
       minLength: 0
     $("#search_start,#search_end").datepicker( dateFormat: 'dd/mm/yy')
+    $("#search_start").val(moment().format('DD/MM/YYYY'))
+    $("#search_end").val(moment().add('days', 3).format('DD/MM/YYYY'))
