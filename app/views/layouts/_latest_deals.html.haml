@@ -1,8 +1,9 @@
 .row-fluid
+  .span12
   - @deals.each do |deal|
-    .span12
+    .span12.deal
       .span3
-        %img.pull-left{src: deal.photo.url.blank? ? '/assets/logo.png' : deal.photo.url}
+        %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/logo.png' : deal.photo.thumb.url}
       .span8
         .caption
           %h5= "From #{deal.from.strftime('%d/%m/%Y')} - Till #{deal.till.strftime('%d/%m/%Y')}"
@@ -11,11 +12,10 @@
           %label= "Mobile: #{deal.mobile.blank? ? '-' : deal.mobile}"
           %p
             = deal.info
-          =link_to 'view details', deal_path(deal), remort:true
+          =link_to 'view details', deal_path(deal), remote: true
           - if current_user && deal.user.id == current_user.id
             |
             =link_to 'Update', edit_deal_path(deal)
             |
             =link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal."
-        %br/
 
