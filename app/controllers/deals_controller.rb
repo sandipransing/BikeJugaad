@@ -25,6 +25,8 @@ class DealsController < ApplicationController
 
   def new
     @deal = @user.deals.new
+    @deal.from = Date.today
+    @deal.till = Date.today + 3.days
   end
 
   def create
