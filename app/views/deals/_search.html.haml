@@ -10,9 +10,8 @@
             %i.icon-search.icon-white
 
 :coffeescript
-  cities = #{@cities}
   $(document).ready ->
     $("#search_location").typeahead
-      source: _.map cities, (c) -> c.name
+      source: cities
       minLength: 0
     $("#search_start,#search_end").datepicker( dateFormat: 'dd/mm/yy')

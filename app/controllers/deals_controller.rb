@@ -1,11 +1,13 @@
 class DealsController < ApplicationController
 
   before_filter :load_user
+  
+  def search
+    @deals = Deal.asc(:from)
+  end
 
   def index
     @deals = Deal.asc(:from)
-    @country = Country.where(code: 'IN').first
-    @cities = @country.cities.to_json
   end
 
   def new

@@ -13,6 +13,7 @@ class Deal
                             }
                  }
 
+  field :title, type: String
   field :vehicle_type, type: String 
   
   field :from, type: Date
