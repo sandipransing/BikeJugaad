@@ -17,7 +17,7 @@
     / Le fav and touch icons
     = csrf_meta_tags
     %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
-  %body{"data-offset" => "300", "data-spy" => "scroll", "data-target" => ".subnav"}
+  %body{"data-offset" => "300", "data-spy" => "scroll", "data-target" => ".subnav", class: ("sign_in_page_grey" unless user_signed_in?) }
     .container
       %header.header
         .row

@@ -5,5 +5,8 @@
 -else
   = render 'layouts/search_results'
 
-= render 'new'
-#new_deal_form
+:coffeescript
+  $(document).ready ->
+    $("#search_location").typeahead
+      source: ['aa', 'bb', 'cc']
+      minLength: 0

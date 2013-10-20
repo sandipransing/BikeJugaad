@@ -1,0 +1,15 @@
+= content_for :stylesheets do
+  = stylesheet_link_tag 'signin'
+- provide(:title, 'Sign In')
+
+.signin
+  %h3 Forgot your password?
+  %hr.soften.margin_top_5px
+
+  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+    = devise_error_messages!
+    %div
+      = f.email_field :email, :autofocus => true, placeholder: 'Email', class: 'width_95_percent'
+    %div.align_centre
+      = f.submit "Send me reset password instructions", class: 'btn'
+  = render "devise/shared/links"

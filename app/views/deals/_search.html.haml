@@ -2,10 +2,11 @@
   .navbar-inner
     .container
       = form_tag search_deals_url, :class => "navbar-search form-inline", style: "margin-top:6px" do
-        %input{placeholder: "Location", type: "text", name: 'city'}/
-        %input{placeholder: "Country", type: "text", name: 'country'}/
+        %input#search_location{placeholder: "Location", type: "text", name: 'city'}/
+        %input#search_country{placeholder: "Country", type: "text", name: 'country'}/
         .input-append
-          %input{placeholder: "", type: "text"}/
+          %input#search_start{placeholder: "From", type: "text"}/
+          %input#search_end{placeholder: "Till", type: "text"}/
           %button.btn.btn-warning
             %i.icon-search.icon-white
 

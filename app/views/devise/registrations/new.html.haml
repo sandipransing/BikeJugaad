@@ -1,0 +1,17 @@
+= content_for :stylesheets do
+  = stylesheet_link_tag 'signin'
+- provide(:title, 'Sign In')
+
+.signin
+  %h3 Sign up
+  %hr.soften.margin_top_5px
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    %div
+      = f.email_field :email, :autofocus => true, placeholder: 'Email', class: 'width_95_percent'
+    %div
+      = f.password_field :password, placeholder: 'Password', class: 'width_95_percent'
+    %div
+      = f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'width_95_percent'
+    %div= f.submit "Sign up", class: 'btn'
+  = render "devise/shared/links"
