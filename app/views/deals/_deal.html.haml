@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .row
   .span12.deal
     .span4
@@ -10,11 +9,11 @@
           .row-fluid
             .span6
               %b
-                Rate Per Day: 
+                Rate Per Day:
               = deal.rate_per_day
             .span6
               %b
-                Rate Per Hour: 
+                Rate Per Hour:
               = deal.rate_per_hour
           .row-fluid
             .span6
@@ -51,15 +50,3 @@
         - if current_user && deal.user.id == current_user.id
           =#link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
           =#link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'
-
-=======
-.row  
-  .span4
-    %img.pull-left{alt: deal.from, src: "/assets/1.jpg"}/
-  .span8
-    .caption
-      %label= deal.vehicle_type
-      %h5= deal.title
-      %p= deal.info
-      %a.pull-right{href: deal_path(deal)} view details
->>>>>>> ba4995274c2de7903cb5f0144c7da159fc8d40a5
