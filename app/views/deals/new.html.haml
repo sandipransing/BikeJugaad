@@ -1,5 +1,5 @@
 - provide(:title, 'Deal Create')
-= simple_form_for @deal, url: deals_path, html: {:multipart => true}  do |f|
+= simple_form_for @deal, url: deals_path, html: {class: 'deal-form', :multipart => true}  do |f|
   %h3.title Create Your Deal
   .well
     = render 'form', f: f
