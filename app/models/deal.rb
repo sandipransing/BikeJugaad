@@ -6,13 +6,14 @@ class Deal
   search_in :address1, :address2, :landmark, :city, :state, :country, :zip
 
   VEHICLE_DATA = {:vehicle_type => ['Sports bike', 'Scooter', 'Moped', 'Touring bike'],
-    :make => ['Bajaj', 'Hero', 'Honda', 'Mahindra', 'TVS', 'Yamaha'],
+    :make => ['Bajaj', 'Hero', 'Honda', 'Mahindra', 'TVS', 'Yamaha', 'Royal Enfield'],
     :model => {'Bajaj' => ['Discover', 'Platina', 'Pulsar', 'M 80'],
       'Hero' => ['Splendor', 'Karizma', 'Impulse', 'Hunk', 'Xtreme','Mestro'],
       'Honda' => ['Activa', 'Aviator','Unicorn', 'Stunner', 'Twister'],
       'Mahindra' => ['Centuro', 'Duro', 'Rodeo', 'Pantero'],
       'TVS' => ['Jupiter', 'Vector', 'Wego','Scooty', 'Star'],
-      'Yamaha' => ['Ray','FZ', 'YBR', 'SZ']
+      'Yamaha' => ['Ray','FZ', 'YBR', 'SZ'],
+      'Royal Enfield' => ['Bullet Classic 350', 'Bullet Classic 500', 'Bullet Thunderbird 350', 'Bullet Thunderbird 500']
   }
   }
 
