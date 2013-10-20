@@ -5,15 +5,5 @@
 -else
   = render 'layouts/search_results'
 
-
-#create_deal.modal.hide.fade
-  .modal-header
-    %a.close{"data-dismiss" => "modal"} ×
-    %h3.title Create Deal
-  .modal-body.msg
-    %p
-      test
-  .modal-footer
-    %a.btn{"data-dismiss" => "modal"} Close
-
-
+= render 'new'
+#new_deal_form

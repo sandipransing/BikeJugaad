@@ -2,6 +2,7 @@
  *= require bootstrap
  *= require bootstrap-responsive
  *= require bootstrap-responsive.min
+ *= require jquery-ui
  */
 
 .deal{

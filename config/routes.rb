@@ -2,7 +2,7 @@ RentMyBikeIn::Application.routes.draw do
 
   devise_for :users
   root to: 'deals#index'
-  resources :deals, :only => [:index] do
+  resources :deals do
     collection do
       post :search
     end

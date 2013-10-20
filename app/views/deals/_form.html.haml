@@ -1,0 +1,82 @@
+.control-group
+  %label.control-label Vehicle Type
+  .controls
+    = f.text_field :vehicle_type, {class: 'input-xlarge', placeholder: 'Vehicle Type'}
+.control-group
+  %label.control-label From Date
+  .controls
+    = f.text_field :from, {class: 'input-xlarge date', placeholder: 'mm/dd/yyyy'}
+.control-group
+  %label.control-label Till Date
+  .controls
+    = f.text_field :till, {class: 'input-xlarge', placeholder: 'mm/dd/yyyy'}
+.control-group
+  %label.control-label Make
+  .controls
+    = f.text_field :make, {class: 'input-xlarge', placeholder: 'Hero Honda'}
+.control-group
+  %label.control-label Model
+  .controls
+    = f.text_field :model, {class: 'input-xlarge', placeholder: 'Activa'}
+.control-group
+  %label.control-label Registration Date
+  .controls
+    = f.text_field :registration_date, {class: 'input-xlarge', placeholder: 'mm/dd/yy'}
+.control-group
+  %label.control-label Hourly Rate
+  .controls
+    = f.text_field :rate_per_hour, {class: 'input-xlarge', placeholder: '50 Rs.'}
+.control-group
+  %label.control-label Per Day Rate
+  .controls
+    = f.text_field :rate_per_day, {class: 'input-xlarge', placeholder: '300 RS.'}
+.control-group
+  %label.control-label Mobile No.
+  .controls
+    = f.text_field :mobile, {class: 'input-xlarge', placeholder: '+91 9876655676'}
+.control-group
+  %label.control-label Phone No.
+  .controls
+    = f.text_field :phone, {class: 'input-xlarge', placeholder: '022-23457890'}
+.control-group
+  %label.control-label Email
+  .controls
+    = f.text_field :registration_date, {class: 'input-xlarge', placeholder: 'info@rentmybike.com'}
+.control-group
+  %label.control-label Address1
+  .controls
+    = f.text_field :address1, {class: 'input-xlarge', placeholder: 'Home no.'}
+.control-group
+  %label.control-label Address2
+  .controls
+    = f.text_field :address2, {class: 'input-xlarge', placeholder: 'Area'}
+.control-group
+  %label.control-label Land Mark
+  .controls
+    = f.text_field :land_mark, {class: 'input-xlarge', placeholder: 'Near SBI bank'}
+.control-group
+  %label.control-label City
+  .controls
+    = f.text_field :city, {class: 'input-xlarge', placeholder: 'Pune'}
+.control-group
+  %label.control-label State
+  .controls
+    = f.text_field :state, {class: 'input-xlarge', placeholder: 'MH'}
+.control-group
+  %label.control-label Country
+  .controls
+    = f.text_field :country, {class: 'input-xlarge', placeholder: 'India'}
+.control-group
+  %label.control-label Zip Code
+  .controls
+    = f.text_field :zip, {class: 'input-xlarge', placeholder: '411005'}
+.control-group
+  %label.control-label Additional Info
+  .controls
+    = f.text_area :info, cols: 20, rows: 5, class: 'input-xlarge'
+
+
+:coffeescript
+  $(document).ready ->
+    $('#deal_from').datepicker()
+    $('#deal_till').datepicker()
