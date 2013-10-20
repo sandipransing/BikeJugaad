@@ -68,5 +68,9 @@ class Deal
   def location
      [address1, address2, city, country].compact.join(' ')
   end
+  
+  def contact
+     [mobile, phone, email].compact.join(' ')
+  end
 
 end
