@@ -3,9 +3,13 @@
     .span3
       %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/default.png' : deal.photo.thumb.url}
     .span9.well
-      .span10
+      .span12
         .caption
-          %h5 From: #{deal.from.strftime('%d/%m/%Y')} — Till: #{deal.till.strftime('%d/%m/%Y')}
+          .row-fluid
+            .span10
+              %h5 From: #{deal.from.strftime('%d/%m/%Y')} — Till: #{deal.till.strftime('%d/%m/%Y')}
+            .span2
+              =link_to 'Details', deal_path(deal), remote: true, class: 'btn btn-primary btn-small'
           .row-fluid
             .span6
               %b
@@ -38,5 +42,3 @@
                 %img{src: '/assets/email.png'}
                 = deal.email
           = truncate(deal.info, length: 250)
-      .span2
-        =link_to 'Details', deal_path(deal), remote: true, class: 'btn btn-primary btn-small'
