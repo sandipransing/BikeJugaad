@@ -1,6 +1,6 @@
 %h2 Contact Us
 .row-fluid
-  .span8.well
+  .span4.well
     %h3 Office Address:
     %p Office No: 41, Floor No. 2,
     %p Infotech Towers,
@@ -10,5 +10,7 @@
     %p India.
     %span
       %b Email Address: #{mail_to 'info@rentmybike.in', 'info@rentmybike.in'}
+  .span4.well
+    = render 'welcome/feedback'
   .span4
     %img{src: '/assets/jmroad_small.jpg', alt:'Office Map', class: 'pull-right'}
