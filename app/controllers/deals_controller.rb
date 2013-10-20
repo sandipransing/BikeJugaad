@@ -16,7 +16,7 @@ class DealsController < ApplicationController
   end
 
   def index
-    @deals = Deal.asc(:from)
+    @deals = Deal.latest.limit(4)
   end
 
   def show
@@ -37,11 +37,11 @@ class DealsController < ApplicationController
   end
 
   def edit
-    @deal = Deal.find(params[:id])
+    @deal = @user.deals.find(params[:id])
   end
 
   def update
-    @deal = Deal.find(params[:id])
+    @deal = @user.deals.find(params[:id])
     if @deal.update_attributes(params[:deal])
       redirect_to deals_path
     else
@@ -50,13 +50,9 @@ class DealsController < ApplicationController
   end
 
   def destroy
-    @deal = Deal.find(params[:id])
+    @deal = @user.deals.find(params[:id])
     @deal.destroy
     redirect_to deals_path
-  end
-
-  def countries
-    @countries = Country.all
   end
 
   private

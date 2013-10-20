@@ -15,6 +15,8 @@ class Deal
       'Yamaha' => ['Ray','FZ', 'YBR', 'SZ']
   }
   }
+  
+  scope :latest, lambda { where(:from.lte => Date.today, :till.gte => Date.today) }
 
   field :title, type: String
   field :vehicle_type, type: String 
