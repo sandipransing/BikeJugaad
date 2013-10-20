@@ -1,13 +1,18 @@
 .navbar
-  .navbar-inner
+  .well
     .container
       = form_tag search_deals_url, :class => "navbar-search form-inline", style: "margin-top:6px" do
         %input#search_location{placeholder: "Enter Location here", type: "text", name: 'city', value: params[:city], autocomplete: :off}/
+        %input#search_start{placeholder: "Start Date", type: "text", name: 'start', value: params[:start]}/
         .input-append
-          %input#search_start{placeholder: "Start Date", type: "text", name: 'start', value: params[:start]}/
           %input#search_end{placeholder: "Till Date", type: "text", name: 'end', value: params[:end]}/
           %button.btn.btn-warning
             %i.icon-search.icon-white
+      - if current_user
+        .pull-right
+          %a{"data-toggle" => "modal", :href => new_deal_path}
+            %span.btn.btn-warning
+              Create Deal
 
 :coffeescript
   $(document).ready ->
