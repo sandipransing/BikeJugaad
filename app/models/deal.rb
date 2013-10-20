@@ -44,12 +44,8 @@ class Deal
 
   belongs_to :user
 
-  embeds_many :images, :cascade_callbacks => true
-
   validates :vehicle_type, :from, :till, :user_id, presence: true
   validate :date_validation
-
-  accepts_nested_attributes_for :images
 
   def date_validation
     if till < from
