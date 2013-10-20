@@ -2,24 +2,24 @@ class Deal
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Search
-  
+
   search_in :address1, :address2, :landmark, :city, :state, :country, :zip
 
-  VEHICLE_DATA = {:vehicle_type => ['Sports bike', 'Scooter', 'Moped', 'Touring bike'], 
-    :make => ['Bajaj', 'Hero', 'Honda', 'Mahindra', 'TVS', 'Yamaha'], 
-    :model => {'Bajaj' => ['Disacover', 'Platina', 'Pulsar', 'M 80'],
-      'Hero' => ['Splender', 'Karizma', 'Impuls', 'Hunk', 'Xtream','Mestro'],
-      'Honda' => ['Activa', 'Aviator','Unicon', 'Stunner', 'Twister'],
-      'Mahindra' => ['Centuro', 'Duero', 'Rodeo', 'Pantero'],
-      'TVS' => ['Jupitor', 'Vector', 'Wego','Scooty', 'Star'],
+  VEHICLE_DATA = {:vehicle_type => ['Sports bike', 'Scooter', 'Moped', 'Touring bike'],
+    :make => ['Bajaj', 'Hero', 'Honda', 'Mahindra', 'TVS', 'Yamaha'],
+    :model => {'Bajaj' => ['Discover', 'Platina', 'Pulsar', 'M 80'],
+      'Hero' => ['Splendor', 'Karizma', 'Impulse', 'Hunk', 'Xtreme','Mestro'],
+      'Honda' => ['Activa', 'Aviator','Unicorn', 'Stunner', 'Twister'],
+      'Mahindra' => ['Centuro', 'Duro', 'Rodeo', 'Pantero'],
+      'TVS' => ['Jupiter', 'Vector', 'Wego','Scooty', 'Star'],
       'Yamaha' => ['Ray','FZ', 'YBR', 'SZ']
   }
   }
-  
+
   scope :latest, lambda { where(:from.lte => Date.today, :till.gte => Date.today) }
 
   field :title, type: String
-  field :vehicle_type, type: String 
+  field :vehicle_type, type: String
 
   field :from, type: Date
   field :till, type: Date
@@ -70,7 +70,7 @@ class Deal
   def location
     [address1, address2, city, country].compact.join(' ')
   end
-  
+
   def bike_detail
     [vehicle_type, make, model].compact.join(' ')
   end
