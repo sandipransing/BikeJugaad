@@ -1,7 +1,7 @@
 %div.row-fluid.deal{'data-make' => "#{deal.make}", 'data-model' => "#{deal.model}", 'data-vehicle_type' => "#{deal.vehicle_type}"}
   .span12
     .span3
-      %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/default.png' : deal.photo.thumb.url}
+      %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/scooter.png' : deal.photo.thumb.url}
     .span9.well
       .span12
         .caption
@@ -35,7 +35,7 @@
                 = deal.mobile
             - unless deal.phone.blank?
               .span3
-                %img{src: '/assets/phone.png'}
+                %img{src: '/assets/phone.gif'}
                 = deal.phone
             - unless deal.email.blank?
               .span6
