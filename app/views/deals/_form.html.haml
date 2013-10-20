@@ -1,22 +1,14 @@
-.row-fluid
-  .span3
-    = f.input :vehicle_type, collection: Deal::VEHICLE_DATA[:vehicle_type].sort, label: 'Vehicle Type',  prompt: "Select vehicle type"
-  .span3
-    = f.input :from, placeholder: 'dd/mm/yyyy', input_html: { value: f.object.from.try(:strftime, '%d/%m/%Y')}
-  .span3
-    = f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.till.try(:strftime, '%d/%m/%Y')}
-  .span3
-    = f.input :make, collection: Deal::VEHICLE_DATA[:make].sort, label: 'Make', prompt: "Select make"
-.row-fluid
-  .span3
-    = f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
-  .span3
-    = f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.registration_date.try(:strftime, '%d/%m/%Y')}
-  .span3
-    = f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
-  .span3
-    = f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300 Rs.'
-.row-fluid
+.row
+  .span3= f.input :vehicle_type, collection: Deal::VEHICLE_DATA[:vehicle_type].sort, label: 'Vehicle Type',  prompt: "Select vehicle type"
+  .span3= f.input :from, placeholder: 'dd/mm/yyyy', input_html: { value: f.object.from.try(:strftime, '%d/%m/%Y')}
+  .span3= f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.till.try(:strftime, '%d/%m/%Y')}
+  .span3= f.input :make, collection: Deal::VEHICLE_DATA[:make].sort, label: 'Make', prompt: "Select make"
+.row
+  .span3= f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
+  .span3= f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.registration_date.try(:strftime, '%d/%m/%Y')}
+  .span3= f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
+  .span3= f.input :rate_per_day, label: 'Per Day Rate', placeholder: '300 Rs.'
+.row
   .span3
     = f.input :mobile, label: 'Mobile No.', placeholder: '+91 9877655765'
   .span3
@@ -25,7 +17,7 @@
     = f.input :email, label: 'Email', placeholder: 'info@rentmybike.com'
   .span3
     = f.input :address1, label: 'Address1', placeholder: 'Home no.'
-.row-fluid
+.row
   .span3
     = f.input :address2, label: 'Address2', placeholder: 'area'
   .span3
@@ -37,7 +29,7 @@
       %label Country
       .control
         = f.select :country, %w(India IN), {}, { :disabled => 'disabled'}
-.row-fluid
+.row
   .span3
     = f.input :zip, label: 'Zip Code', placeholder: '411005'
   .span3
@@ -50,7 +42,6 @@
       %label Photo
       .control
         = f.file_field :photo
-
 
 :coffeescript
   $(document).ready ->
