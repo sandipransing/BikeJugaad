@@ -3,7 +3,7 @@
   %head
     %meta{charset: "utf-8"}/
     %title
-      RentMYBike 
+      RentMYBike
       |
       = yield(:title)
     %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
@@ -26,6 +26,10 @@
             = link_to image_tag('logo.png', alt: "RentMYBike.in"), root_url, title: "RentMYBike"
           .span6
             = render "layouts/navigation"
+      - if notice
+        %p.alert.alert-notice= notice
+      - if alert
+        %p.alert.alert-error= alert
       = yield
       %hr.soften/
       %footer.footer

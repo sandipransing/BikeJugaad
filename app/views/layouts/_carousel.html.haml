@@ -1,19 +1,23 @@
 #myCarousel.carousel.slide.homCar
   .carousel-inner{style: "border-top:18px solid #222; border-bottom:1px solid #222; border-radius:4px;"}
     .item.active
-      %img{alt: "#", src: "/assets/yamaha.png", style: "height:250px; min-width:100%"}/
+      = link_to image_tag("/assets/yamaha.png", size: '1170x250'), root_path
       .carousel-caption
         %h4 We help you search any bike you desire...
         %p
           No matter what location you are from, we will help you find a rental listing. No need to register for searching.
     .item
-      %img{alt: "#", src: "/assets/deal.png", style: "height:250px; min-width:100%"}/
+      = link_to image_tag("/assets/deal.png", size: '1170x250'), deals_path
       .carousel-caption
         %h4 If you are interested in any deal...
         %p
           Sign in and view the contact details of the bike owner... If you are a new user...Just sign up!!! Its free!!!
     .item
-      %img{alt: "#", src: "/assets/create-deal.png", style: "height:250px; min-width:100%"}/
+      - if user_signed_in?
+        = link_to image_tag("/assets/create-deal.png", size: '1170x250'), new_deal_path
+      - else
+        = link_to image_tag("/assets/create-deal.png", size: '1170x250'), new_user_session_path
+
       .carousel-caption
         %h4 If you want to rent your bike...
         %p
