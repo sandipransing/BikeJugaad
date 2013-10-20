@@ -19,10 +19,10 @@
         %ul
           - Deal::VEHICLE_DATA[:model].each do |make, models|
             %li.make{'data-make' => make }
-              = check_box_tag make, true, false, 'data-make' => make, 'class' => "make"
+              = check_box_tag make, false, true, 'data-make' => make, 'class' => "make"
               = make
               %ul.subfilter
                 - models.each do |model|
                   %li.model
-                    = check_box_tag model, true, false, 'data-model' => model
+                    = check_box_tag model, false, true, 'data-model' => model
                     = model
