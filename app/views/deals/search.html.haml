@@ -1,0 +1,5 @@
+= render 'search'
+.row-fluid
+  .span4
+  .span8.pull-right
+    = render 'deal', collection: @deals if @deals.any?
