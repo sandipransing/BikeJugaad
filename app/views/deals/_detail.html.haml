@@ -2,7 +2,6 @@
   .span12
     .span4
       %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/scooter.png' : deal.photo.thumb.url}
-      %img{src: "/assets/stars-4-5.gif", class: 'image-box'}
       .button-box
         - if current_user && deal.user.id == current_user.id
           =link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
