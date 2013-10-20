@@ -17,13 +17,22 @@
 .width_75_percent{
    width: 75%;
 }
-.sign_in_page_grey{
-  background: whitesmoke;
-}
 .align_centre{
   text-align: center !important;
 }
 .margin_adjust{
   margin-left: 10px;
   margin-right: 10px;
+}
+.btn-color{
+  color: #112B2D
+}
+
+#error_explanation{
+    color:red;
+}
+
+#error_explanation h2{
+  font-size:13px;
+  color:red;
 }
