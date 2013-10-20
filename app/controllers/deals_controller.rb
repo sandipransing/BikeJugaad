@@ -1,5 +1,6 @@
 class DealsController < ApplicationController
 
+  before_filter :authorize, except: [:index, :show, :search]
   before_filter :load_user
 
   def search
@@ -7,7 +8,7 @@ class DealsController < ApplicationController
     @deals = @deals.full_text_search(params[:city]) if params[:city].present?
     case true
     when params[:start].present? && params[:end].present?
-      @deals = @deals.where(:from.lte => params[:start], :till.gte => params[:end]) 
+      @deals = @deals.where(:from.lte => params[:start], :till.gte => params[:end])
     when params[:start].present?
       @deals = @deals.where(:from.lte => params[:start])
     when params[:end].present?
@@ -60,5 +61,9 @@ class DealsController < ApplicationController
   private
   def load_user
     @user = current_user
+  end
+
+  def authorize
+    redirect_to root_path unless current_user.present?
   end
 end

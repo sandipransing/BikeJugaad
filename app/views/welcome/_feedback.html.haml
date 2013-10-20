@@ -1,0 +1,9 @@
+%h3 Send Feedback:
+= form_tag feedback_path do |f|
+  = label_tag 'Enter your email address'
+  .feedback-label-width
+    = text_field_tag "feedback[email]"
+  = label_tag 'Description'
+  = text_area_tag "feedback[description]"
+  .centre_align
+    = submit_tag 'Send Feedback', class: 'btn'

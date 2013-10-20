@@ -10,6 +10,7 @@ RentMyBikeIn::Application.routes.draw do
 
   match '/details', to: 'welcome#details', as: :details
   match '/contact_us', to: 'welcome#contact_us', as: :contact_us
+  match '/feedback', to: 'welcome#feedback', as: :feedback
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
