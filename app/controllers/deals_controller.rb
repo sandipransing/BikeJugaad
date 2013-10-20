@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
 
   def index
-    @deals = Deal.all
+    @deals = Deal.asc(:from)
   end
 
   def new
@@ -15,6 +15,25 @@ class DealsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @deal = Deal.find(params[:id])
+  end
+
+  def update
+    @deal = Deal.find(params[:id])
+    if @deal.update_attributes(params[:deal])
+      redirect_to deals_path
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @deal = Deal.find(params[:id])
+    @deal.destroy
+    redirect_to deals_path
   end
 
   def countries

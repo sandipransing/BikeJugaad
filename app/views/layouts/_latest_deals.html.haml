@@ -2,7 +2,7 @@
   - @deals.each do |deal|
     .span12
       .span3
-        %img.pull-left{src: deal.photo.url}
+        %img.pull-left{src: deal.photo.url.blank? ? '/assets/logo.png' : deal.photo.url}
       .span8
         .caption
           %h5= "From #{deal.from.strftime('%d/%m/%Y')} - Till #{deal.till.strftime('%d/%m/%Y')}"
@@ -12,5 +12,10 @@
           %p
             = deal.info
           =link_to 'view details', deal_path(deal), remort:true
+          - if current_user && deal.user.id == current_user.id
+            |
+            =link_to 'Update', edit_deal_path(deal)
+            |
+            =link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal."
         %br/
 

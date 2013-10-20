@@ -1,17 +1,17 @@
 .row-fluid
   .span3
-    = f.input :vehicle_type, label: 'Vehicle Type', placeholder: 'Vehicle Type'
+    = f.input :vehicle_type, collection: Deal::VEHICLE_DATA[:vehicle_type].sort, label: 'Vehicle Type',  prompt: "Select vehicle type"
   .span3
-    = f.input :from, label: 'From Date', placeholder: 'mm/dd/yyyy', label_html: { class: 'text-large date' }
+    = f.input :from, label: 'From Date', placeholder: 'dd/mm/yyyy'
   .span3
-    = f.input :till, label: 'Till Date', placeholder: 'mm/dd/yyyy'
+    = f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy'
   .span3
-    = f.input :make, label: 'Make', placeholder: 'Hero Honda'
+    = f.input :make, collection: Deal::VEHICLE_DATA[:make].sort, label: 'Make', prompt: "Select make"
 .row-fluid
   .span3
-    = f.input :model, label: 'Model', placeholder: 'Activa'
+    = f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
   .span3
-    = f.input :registration_date, label: 'Registration Date', placeholder: 'yyyy/mm/dd'
+    = f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy'
   .span3
     = f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
   .span3
@@ -56,3 +56,4 @@
   $(document).ready ->
     $('#deal_from').datepicker()
     $('#deal_till').datepicker()
+    $('#deal_registration_date').datepicker()
