@@ -6,7 +6,7 @@
       .button-box
         - if current_user && deal.user.id == current_user.id
           =link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
-          =link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'
+          =link_to 'Delete', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'
     .span8.well
       .span12
         .caption
@@ -45,5 +45,17 @@
               .span12
                 %img.img-width{src: '/assets/email.png'}
                 = deal.email
-          %br
+          .row-fluid
+            .span4
+              %b
+                Is Owner?
+              = deal.is_owner ? 'Yes' : 'No'
+            .span5
+              %b
+                Insurance:
+              = deal.insurence ? 'Yes' : 'No'
+            .span3
+              %b
+                PUC
+              = deal.puc ? 'Yes' : 'No'
           = deal.info
