@@ -27,10 +27,6 @@
             = link_to image_tag('logo1.png', alt: "BikeJugaad.com"), root_url, title: "BikeJugaad"
           .span6
             = render "layouts/navigation"
-      - if notice
-        %p.alert.alert-notice= notice
-      - if alert
-        %p.alert.alert-error= alert
       = yield
       %hr.soften/
       %footer.footer

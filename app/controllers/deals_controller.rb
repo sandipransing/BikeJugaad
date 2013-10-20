@@ -33,6 +33,7 @@ class DealsController < ApplicationController
   def create
     @deal = @user.deals.new(params[:deal])
     if @deal.save
+      flash[:notice] = 'Deal created sucessfully.'
       redirect_to deals_path
     else
       render :new
@@ -46,6 +47,7 @@ class DealsController < ApplicationController
   def update
     @deal = @user.deals.find(params[:id])
     if @deal.update_attributes(params[:deal])
+      flash[:notice] = 'Deal updated sucessfully.'
       redirect_to deals_path
     else
       render :edit
@@ -55,6 +57,7 @@ class DealsController < ApplicationController
   def destroy
     @deal = @user.deals.find(params[:id])
     @deal.destroy
+    flash[:notice] = 'Deal deleted sucessfully.'
     redirect_to deals_path
   end
 
