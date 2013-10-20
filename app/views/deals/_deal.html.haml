@@ -1,9 +1,53 @@
-.row  
-  .span4
-    %img.pull-left{alt: deal.title, src: "/assets/1.jpg"}/
-  .span8
-    .caption
-      %label= deal.vehicle_type
-      %h5= deal.title
-      %p= deal.info
-      %a.pull-right{href: deal_path(deal)} view details
+.row
+  .span12.deal
+    .span4
+      %img.pull-left{src: deal.photo.thumb.url.blank? ? '/assets/default.png' : deal.photo.thumb.url}
+    .span8.well
+      .span10
+        .caption
+          %h5= "From #{deal.from.strftime('%d/%m/%Y')} - #{deal.till.strftime('%d/%m/%Y')}"
+          .row-fluid
+            .span6
+              %b
+                Rate Per Day: 
+              = deal.rate_per_day
+            .span6
+              %b
+                Rate Per Hour: 
+              = deal.rate_per_hour
+          .row-fluid
+            .span6
+              %b
+                Bike Info:
+              = deal.bike_detail
+            .span6
+              %b
+                Location:
+              = deal.location
+          .row-fluid
+            - unless deal.mobile.blank?
+              .span3
+                %img{src: '/assets/mobile.png'}
+                = deal.mobile
+            - unless deal.phone.blank?
+              .span3
+                %img{src: '/assets/phone.png'}
+                = deal.phone
+            - unless deal.email.blank?
+              .span3
+                %img{src: '/assets/email.png'}
+                = deal.email
+          %br
+          = truncate(deal.info, length: 250)
+      .span2
+        %img{src: "/assets/stars-4-5.gif"}
+        %br
+        %br
+        %br
+        %br
+        %br
+        =link_to 'view details', deal_path(deal), remote: true, class: 'btn btn-primary btn-small'
+        - if current_user && deal.user.id == current_user.id
+          =#link_to 'Update', edit_deal_path(deal), class: 'btn btn-success btn-small'
+          =#link_to 'Cancel', deal_path(deal), method: :delete, :confirm => "Are you sure? You want to cancel this deal.", class: 'btn btn-danger btn-small'
+

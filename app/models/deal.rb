@@ -74,8 +74,7 @@ class Deal
     [address1, address2, city, country].compact.join(' ')
   end
   
-  def contact
-     [mobile, phone, email].compact.join(' ')
+  def bike_detail
+    [vehicle_type, make, model].compact.join(' ')
   end
-
 end
