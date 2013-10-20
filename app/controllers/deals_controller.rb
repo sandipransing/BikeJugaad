@@ -10,6 +10,10 @@ class DealsController < ApplicationController
     @deals = Deal.asc(:from)
   end
 
+  def show
+    @deal = Deal.find(params[:id])
+  end
+
   def new
     @deal = @user.deals.new
   end

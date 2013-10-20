@@ -2,16 +2,16 @@
   .span3
     = f.input :vehicle_type, collection: Deal::VEHICLE_DATA[:vehicle_type].sort, label: 'Vehicle Type',  prompt: "Select vehicle type"
   .span3
-    = f.input :from, label: 'From Date', placeholder: 'dd/mm/yyyy'
+    = f.input :from, placeholder: 'dd/mm/yyyy', input_html: { value: f.object.new_record? ? '' : f.object.from.strftime('%d/%m/%Y')}
   .span3
-    = f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy'
+    = f.input :till, label: 'Till Date', placeholder: 'dd/mm/yyyy', input_html: { value: f.object.new_record? ? '' : f.object.till.strftime('%d/%m/%Y')}
   .span3
     = f.input :make, collection: Deal::VEHICLE_DATA[:make].sort, label: 'Make', prompt: "Select make"
 .row-fluid
   .span3
     = f.input :model, collection: Deal::VEHICLE_DATA[:model].values.flatten.sort, label: 'Model', prompt: "Select model"
   .span3
-    = f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy'
+    = f.input :registration_date, label: 'Registration Date', placeholder: 'dd/mm/yyyy', input_html: { value: (f.object.new_record? or f.object.registration_date.blank?) ? '' : f.object.registration_date.strftime('%d/%m/%Y')}
   .span3
     = f.input :rate_per_hour, label: 'Hourly Rate', placeholder: '50 Rs.'
   .span3
@@ -54,6 +54,6 @@
 
 :coffeescript
   $(document).ready ->
-    $('#deal_from').datepicker()
-    $('#deal_till').datepicker()
-    $('#deal_registration_date').datepicker()
+    $('#deal_from').datepicker( dateFormat: 'dd/mm/yy')
+    $('#deal_till').datepicker( dateFormat: 'dd/mm/yy')
+    $('#deal_registration_date').datepicker( dateFormat: 'dd/mm/yy')

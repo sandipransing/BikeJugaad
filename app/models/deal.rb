@@ -49,16 +49,17 @@ class Deal
   validate :date_validation
 
   def date_validation
-    if till < from
-      errors.add(:till, "can't be less than from date")
+    if till.present? && from.present?
+      if till.to_date < from.to_date
+        errors.add(:till, "can't be less than from date")
+      end
+
+      if from.to_date > till.to_date
+        errors.add(:from, "can't be greater than till date")
+      end
     end
-   
-    if from > till
-      errors.add(:from, "can't be greter than till date")
-    end
-    
-    if registration_date.present? && registration_date > Date.today
-      errors.add(:registration_date, "can't be greter than tody's date")
+    if registration_date.present? && registration_date.to_date < Date.today
+      errors.add(:registration_date, "can't be greater than tody's date")
     end
   end
 
